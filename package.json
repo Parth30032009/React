@@ -1,0 +1,32 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000R\u0000e\u0000a\u0000c\u0000t\u0000\r\u0000 \u0000",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parth30032009/React.git"
+  },
+  "keywords": [
+    "Namaste",
+    "React"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Parth30032009/React/issues"
+  },
+  "homepage": "https://github.com/Parth30032009/React#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  }
+}
