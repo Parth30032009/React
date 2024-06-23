@@ -1,10 +1,30 @@
-.container1{
-    background-color: blue;
-}
 img{
     width: 100px;
-    height: 100px;
+
 }
-.searchBox{
-    text-align: end;
+#carouselExampleAutoplaying{
+    width: 1000px;
+    height: 500px;
 }
+
+.Container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    
+}
+.cardContainer{
+    width: 500px;
+    height: 550px;
+}
+.card{
+    height: 520px;
+}
+
+.card > img{
+    
+    width: 400px;
+    height: 300px;
+    
+}
+
