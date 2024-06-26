@@ -1,34 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "./Components/Header";
 import FoodCard from "./Components/FoodCard";
-import foodData from "./Components/config";
-
 
 function AppLayout() {
-  let [FoodList,setFoodList]=useState(foodData)
+  let [FoodList, setFoodList] = useState([]);
+  let [FilteredFoodList, setFilteredFoodList] = useState([]);
+  let [loading, setLoading] = useState(true);
+  let [error, setError] = useState(false);
 
   function onChangeSearchHandler(e) {
+    let inputValue = e.target.value;
+    let filteredFoodList = FoodList.filter((food, index) => {
+      if (index > 2) {
+        return food.card.card.info.name
+          .toLowerCase()
+          .includes(inputValue.toLowerCase());
+      }
+    });
     
-    let inputValue=e.target.value
-    let filteredFoodList=foodData.filter((food)=>{
-      return food.name.toLowerCase().includes(inputValue.toLowerCase())
-    })
-    
-
-    
-    setFoodList(filteredFoodList)
-
+    setFilteredFoodList(filteredFoodList);
   }
+useEffect(() => {
+  fetchData();
+  }, []);
+  async function fetchData() {
+    try {
+      let data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.79400&lng=77.86530&collection=83631&tags=layout_CCS_Pizza&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+      );
+      let jsonData = await data.json();
+      let apiData = jsonData.data.cards;
+      setFoodList(apiData);
+      setFilteredFoodList(apiData);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  }
+
+  
   
   return (
     <>
-      <Header onChangeSearchHandler={onChangeSearchHandler}/>
-
-      <FoodCard FoodData={FoodList}></FoodCard>
+      <Header onChangeSearchHandler={onChangeSearchHandler} />
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : error ? (
+        <p>Error:{error}</p>
+      ) : (
+        <FoodCard FoodData={FilteredFoodList}></FoodCard>
+      )}
     </>
   );
 }
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<AppLayout />);
