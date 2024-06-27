@@ -25,6 +25,13 @@ img{
     height: 400px;
     
 }
+.d-flex{
+    flex-wrap: wrap;
+   gap: 30px;
+    padding:5px 50px;
+    justify-content: center;
+
+}
 
 
 

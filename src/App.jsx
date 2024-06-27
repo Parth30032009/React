@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "./Components/Header";
 import FoodCard from "./Components/FoodCard";
+import ShimmerLayout from "./Components/ShimmerLayout";
 
 function AppLayout() {
   let [FoodList, setFoodList] = useState([]);
@@ -19,11 +20,11 @@ function AppLayout() {
           .includes(inputValue.toLowerCase());
       }
     });
-    
+
     setFilteredFoodList(filteredFoodList);
   }
-useEffect(() => {
-  fetchData();
+  useEffect(() => {
+    fetchData();
   }, []);
   async function fetchData() {
     try {
@@ -36,22 +37,28 @@ useEffect(() => {
       setFilteredFoodList(apiData);
       setLoading(false);
     } catch (error) {
-      setError(error);
+      setError("Error Occured");
       setLoading(false);
     }
   }
 
-  
-  
+
   return (
+
     <>
       <Header onChangeSearchHandler={onChangeSearchHandler} />
+      
+      
       {loading ? (
-        <h1>Loading...</h1>
+        <div className="d-flex">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <ShimmerLayout key={index} />
+          ))}
+        </div>
       ) : error ? (
-        <p>Error:{error}</p>
+        <h1>{error}</h1>
       ) : (
-        <FoodCard FoodData={FilteredFoodList}></FoodCard>
+        <FoodCard FoodData={FilteredFoodList} />
       )}
     </>
   );

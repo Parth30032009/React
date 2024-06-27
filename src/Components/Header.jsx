@@ -1,4 +1,4 @@
-let  Header= function ({onChangeSearchHandler}) {
+let  Header= function ({onChangeSearchHandler,onClickHandler}) {
     return (
       <>
         {/* // Navbar */}
@@ -28,12 +28,13 @@ let  Header= function ({onChangeSearchHandler}) {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item mx-3">
-                  <a className="nav-link active " href="/">
+                  <a className="nav-link active">
                     Home
                   </a>
                 </li>
+                
                 <li className="nav-item mx-3">
-                  <a className="nav-link" href="/">
+                  <a className="nav-link" >
                     About Us
                   </a>
                 </li>

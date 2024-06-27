@@ -2,9 +2,7 @@ import FoodCardLayout from "./FoodCardLayout";
 
 function FoodCard({ FoodData }) {
  
-  if (!FoodData || FoodData.length === 0) {
-    return <h1>No Food Found</h1>;
-  }
+  
 
   return (
     <div className="Container row-cols-3">

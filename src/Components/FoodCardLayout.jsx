@@ -12,31 +12,31 @@ function FoodCardLayout({ card }) {
               alt={`${objPath.name} image`}
             />
             <div className="card-body">
-              <div class="container start">
-                <div class="row">
-                  <div class="col-12">
-                    <h4 className="card-title">{objPath.name}</h4>
+              <div className="container start">
+                <div className="row">
+                  <div className="col-12">
+                    <h4 className="card-title">{objPath?.name}</h4>
                   </div>
-                  <div class="col-12">
+                  <div className="col-12">
                     <h5>{[...objPath.cuisines].join(",")}</h5>
                   </div>
 
                   {/* <!-- Force next columns to break to new line --> */}
-                  <div class="w-100"></div>
+                  <div className="w-100"></div>
 
-                  <div class="col-12">
+                  <div className="col-12">
                     <h5>Ratings-:{objPath.avgRatingString}</h5>
                   </div>
-                  <div class="col-12">
+                  <div className="col-12">
                     <h5>Time-:{card.card.info.sla.slaString}</h5>
                   </div>
                   {/* <!-- Force next columns to break to new line --> */}
-                  <div class="w-100"></div>
+                  <div className="w-100"></div>
 
-                  <div class="col-12">
+                  <div className="col-12">
                     <h5>{objPath.costForTwo}</h5>
                   </div>
-                  <div class="col-12">
+                  <div className="col-12">
                     <a href="/" className="btn btn-primary">
                       Buy Now
                     </a>
