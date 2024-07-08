@@ -1,37 +1,29 @@
-img{
-    width: 100px;
-
+img {
+  width: 100px;
 }
 
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.card {
+  height: auto;
+  width: 100%;
 
-.Container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    
-} 
-.card{
-    height: auto;
-    width: 100%;
-    
-    max-width: 400px;
-    
-    
+  max-width: 400px;
 }
 
-.card > img{
-    
-    width: auto;
-    height: 400px;
-    
+.card > img {
+  width: auto;
+  height: 400px;
 }
-.d-flex{
-    flex-wrap: wrap;
-   gap: 30px;
-    padding:5px 50px;
-    justify-content: center;
-
+.d-flex {
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 5px 50px;
+  justify-content: center;
 }
-
-
-
+.act {
+  color: red;
+}
